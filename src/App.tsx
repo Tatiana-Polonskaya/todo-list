@@ -20,6 +20,8 @@ function App() {
       setStore((t) => [...t, { id: taskId(), name: newTask(), isDone: false }]);
       setTaskId((prev) => prev + 1);
       setNewTask("");
+      console.log(taskId());
+      console.log(store);
     }
   };
 
@@ -52,7 +54,7 @@ function App() {
 
       <div class="mb-3 d-flex flex-column gap-3">
         <For each={store}>
-          {(item, _index) => (
+          {(item) => (
             <TaskRow
               task={item}
               onDeleteClick={handleDeleteClick}
